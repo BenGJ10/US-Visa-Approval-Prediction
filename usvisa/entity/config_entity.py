@@ -27,6 +27,7 @@ class TrainingPipelineConfig:
 
 training_pipeline_config: TrainingPipelineConfig = TrainingPipelineConfig()
 
+@dataclass
 class DataIngestionConfig:
     """
     Configuration class for the data ingestion component of the pipeline.
