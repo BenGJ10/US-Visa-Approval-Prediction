@@ -9,6 +9,7 @@ COLLECTION_NAME = "UsVisaData"
 MONGO_DB_URL = os.getenv("MONGO_DB_URL")
 PIPELINE_NAME: str = "UsVisa"
 ARTIFACT_DIR: str = "Artifacts" 
+FILE_NAME: str = "usvisa.csv"
 TRAIN_FILE_NAME: str = "train.csv"
 TEST_FILE_NAME: str = "test.csv"
 MODEL_FILE_NAME: str = "model.pkl"
