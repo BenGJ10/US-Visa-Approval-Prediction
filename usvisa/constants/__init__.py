@@ -1,11 +1,12 @@
 import os
 import sys
 from datetime import date
-
+from dotenv import load_dotenv
 """
 Defining common constant variables for training pipeline
 """
 COLLECTION_NAME = "UsVisaData"
+load_dotenv()
 MONGO_DB_URL = os.getenv("MONGO_DB_URL")
 PIPELINE_NAME: str = "UsVisa"
 ARTIFACT_DIR: str = "Artifacts" 
