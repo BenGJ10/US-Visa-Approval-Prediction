@@ -16,6 +16,7 @@ TEST_FILE_NAME: str = "test.csv"
 MODEL_FILE_NAME: str = "model.pkl"
 TARGET_COLUMN = "case_status"
 CURRENT_YEAR = date.today().year
+SCHEMA_FILE_PATH = os.path.join('config', 'schema.yaml')
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 
 """
