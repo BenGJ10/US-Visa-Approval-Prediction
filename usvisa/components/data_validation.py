@@ -146,12 +146,14 @@ class DataValidation:
                 raise Exception("Test data does not contain all valid columns.")
 
             # Checking dataset drift
-            validation_status = self.detect_dataset_drift(base_df = train_df, current_df = test_df)
-            if validation_status:
+            drift_status = self.detect_dataset_drift(base_df = train_df, current_df = test_df)
+            if drift_status:
                 logging.info("Drift detected.")
             else:
                 logging.info("No Drift detected.")
-
+            
+            validation_status = True
+            
             # If no issue, save this as a csv file
             dir_path = os.path.dirname(self.data_validation_config.valid_train_file_path)
             os.makedirs(dir_path, exist_ok = True)

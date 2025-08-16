@@ -66,9 +66,6 @@ def save_object(file_path: str, obj: object) -> None:
     Saves an object to a specified file path using dill serialization. If the directory does not exist, it will be created.
     """
     try:
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"The file {file_path} does not exist.")
-        
         os.makedirs(os.path.dirname(file_path), exist_ok = True)
         with open(file_path, "wb") as file_obj:
             dill.dump(obj, file_obj)
