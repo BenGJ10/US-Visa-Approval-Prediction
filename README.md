@@ -70,6 +70,57 @@ We have implemented the first step of the MLOps pipeline: **Data Ingestion**.
 
 ---
 
+## Data Validation
+
+We have implemented the second step of the MLOps pipeline: **Data Validation**.
+
+- Ensures the integrity and quality of ingested data before it proceeds to further pipeline stages.
+
+- Validates schema (column names, data types, missing values).
+
+- Detects data drift between training and testing sets using the Evidently library.
+
+- Saves validation reports and artifacts for traceability and monitoring.
+
+#### Data Validation Flow
+
+```
+[Data Validation Config]
+   |-- Schema File (schema.yaml)
+   |-- Report File Path
+   |-- Report Page Path
+        |
+        v
+[Initiate Data Validation]
+        |
+        v
+[Validate Dataset Schema]
+   |-- Check Column Names
+   |-- Check Data Types
+   |-- Check Missing Values
+        |
+        v
+[Detect Data Drift] ---> (Evidently Library)
+        |
+        v
+[Generate Validation Reports]
+   |-- JSON Report (report.json)
+   |-- HTML Report (report.html)
+        |
+        v
+[Data Validation Artifact] ---> [artifact folder]
+```
+
+#### Steps Completed
+
+- Configured data validation parameters (schema file, report paths).
+- Validated schema consistency of ingested train and test datasets.
+- Used Evidently to detect and report data drift.
+- Generated and saved both JSON and HTML validation reports.
+- Stored the DataValidationArtifact in the artifact folder for downstream consumption.
+
+---
+
 ## Setup Instructions
 
 1. Clone the repository:
