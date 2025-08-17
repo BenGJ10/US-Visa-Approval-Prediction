@@ -69,11 +69,10 @@ class DataValidationConfig:
 
     invalid_train_file_path: str = os.path.join(invalid_data_dir, TRAIN_FILE_NAME)
     invalid_test_file_path: str = os.path.join(invalid_data_dir, TEST_FILE_NAME)
-
+    # Path for the drift report file
     drift_report_file_path: str = os.path.join(data_validation_dir, 
                                                DATA_VALIDATION_DRIFT_REPORT_DIR, 
                                                DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
-
 
 @dataclass
 class DataTransformationConfig:
@@ -94,3 +93,17 @@ class DataTransformationConfig:
     transformed_object_file_path: str = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR, 
                                                      PREPROCSSING_OBJECT_FILE_NAME)
 
+@dataclass
+class ModelTrainerConfig:
+    """
+    Configuration class for the model trainer component of the pipeline.
+    This includes:
+    - Directory for model training artifacts.
+    - Path for the trained model file.
+    - Expected accuracy for the model.
+    """
+    
+    model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
+    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_FILE_NAME)
+    expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
+    model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
