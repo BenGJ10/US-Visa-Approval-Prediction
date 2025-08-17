@@ -56,5 +56,5 @@ class ModelTrainerArtifact:
     This class holds the path to the trained model file and the metric artifacts for both training and testing datasets.
     """
     trained_model_file_path: str
-    train_metric_artifact: ClassificationMetricArtifact
-    test_metric_artifact: ClassificationMetricArtifact
+    metric_artifact: ClassificationMetricArtifact
+    
