@@ -2,13 +2,13 @@ import sys
 from usvisa.logger.logger import logging
 from usvisa.exception.exception import UsVisaException
 
-from usvisa.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
+from usvisa.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig
 from usvisa.entity.config_entity import TrainingPipelineConfig
 
 from usvisa.components.data_ingestion import DataIngestion
 from usvisa.components.data_validation import DataValidation
 from usvisa.components.data_transformation import DataTransformation
-
+from usvisa.components.model_trainer import ModelTrainer
 
 if __name__ == "__main__":
     try:
@@ -34,6 +34,13 @@ if __name__ == "__main__":
         data_transformation_artifact = data_transformation.initiate_data_transformation()
         logging.info("Data transformation successfully completed.")
         print(data_transformation_artifact)
+        
+        model_trainer_config = ModelTrainerConfig(training_pipeline_config)
+        model_trainer = ModelTrainer(data_transformation_artifact, model_trainer_config)
+        logging.info("Initiating Model Training..")
+        model_trainer_artifact = model_trainer.initiate_model_trainer()
+        logging.info("Model training successfully completed.")
+        print(model_trainer_artifact)
         
     except Exception as e:
         raise UsVisaException(e, sys)
