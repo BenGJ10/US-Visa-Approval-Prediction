@@ -12,8 +12,8 @@ class S3Client:
         Initialize the S3 client and resource with the provided AWS credentials and region.
         """
         if S3Client.s3_resource == None or S3Client.s3_client == None:
-            __access_key_id = os.getenv(AWS_ACCESS_KEY_ID, )
-            __secret_access_key = os.getenv(AWS_SECRET_ACCESS_KEY)
+            __access_key_id = AWS_ACCESS_KEY_ID
+            __secret_access_key = AWS_SECRET_ACCESS_KEY
 
             if __access_key_id is None:
                 raise Exception(f"Environment variable: {AWS_ACCESS_KEY_ID} is not not set.")

@@ -21,7 +21,7 @@ class TargetValueMapping:
     
     def reverse_mapping(self):
         """Reverse the mapping of target values to status labels."""
-        mapping_response = self._asdict
+        mapping_response = self._asdict()
         return dict(zip(mapping_response.values(), mapping_response.keys()))
     
     

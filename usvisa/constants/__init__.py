@@ -18,7 +18,7 @@ TARGET_COLUMN = "case_status"
 CURRENT_YEAR = date.today().year
 SCHEMA_FILE_PATH = os.path.join('config', 'schema.yaml')
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID"),
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_REGION = "ap-south-1"
 
