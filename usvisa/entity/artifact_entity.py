@@ -58,3 +58,14 @@ class ModelTrainerArtifact:
     trained_model_file_path: str
     metric_artifact: ClassificationMetricArtifact
     
+@dataclass
+class ModelEvaluationArtifact:
+    """
+    Data class for storing model evaluation artifacts.
+    This class holds the evaluation status, accuracy score, and paths for the model registry and trained model.
+    It also includes a flag indicating whether the model is accepted based on the evaluation.
+    """
+    is_model_accepted: bool
+    changed_accuracy: float
+    s3_model_path: str 
+    trained_model_path: str

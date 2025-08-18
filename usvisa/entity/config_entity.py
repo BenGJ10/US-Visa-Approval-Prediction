@@ -107,3 +107,17 @@ class ModelTrainerConfig:
     trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_FILE_NAME)
     expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
     model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
+
+
+@dataclass
+class ModelEvaluationConfig:
+    """
+    Configuration class for the model evaluation component of the pipeline.
+    This includes:
+    - Threshold score change for model evaluation.
+    - S3 bucket name for model storage.
+    - S3 key path for the model file.
+    """
+    threshold_score_change: float = MODEL_EVALUATION_THRESHOLD_SCORE_CHANGE
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = MODEL_FILE_NAME
