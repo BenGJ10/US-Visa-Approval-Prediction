@@ -2,13 +2,14 @@ import sys
 from usvisa.logger.logger import logging
 from usvisa.exception.exception import UsVisaException
 
-from usvisa.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig
+from usvisa.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig
 from usvisa.entity.config_entity import TrainingPipelineConfig
 
 from usvisa.components.data_ingestion import DataIngestion
 from usvisa.components.data_validation import DataValidation
 from usvisa.components.data_transformation import DataTransformation
 from usvisa.components.model_trainer import ModelTrainer
+from usvisa.components.model_evaluation import ModelEvaluation
 
 if __name__ == "__main__":
     try:
@@ -41,6 +42,13 @@ if __name__ == "__main__":
         model_trainer_artifact = model_trainer.initiate_model_trainer()
         logging.info("Model training successfully completed.")
         print(model_trainer_artifact)
+        
+        model_evaluation_config = ModelEvaluationConfig(training_pipeline_config)
+        model_evaluation = ModelEvaluation(model_evaluation_config, data_ingestion_artifact, model_trainer_artifact)
+        logging.info("Initiating Model Evaluation..")
+        model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
+        logging.info("Model evaluation successfully completed.")
+        print(model_evaluation_artifact)
         
     except Exception as e:
         raise UsVisaException(e, sys)
