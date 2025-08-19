@@ -54,7 +54,7 @@ class ModelEvaluation:
         """
         try:
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
-            test_df['comapny_age'] = CURRENT_YEAR - test_df['yr_of_estab']
+            test_df['company_age'] = CURRENT_YEAR - test_df['yr_of_estab']
 
             X, Y = test_df.drop(TARGET_COLUMN, axis = 1), test_df[TARGET_COLUMN]
             Y = Y.replace(TargetValueMapping()._asdict())
