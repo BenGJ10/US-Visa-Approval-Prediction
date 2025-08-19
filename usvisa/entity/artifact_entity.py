@@ -69,3 +69,13 @@ class ModelEvaluationArtifact:
     changed_accuracy: float
     s3_model_path: str 
     trained_model_path: str
+
+
+@dataclass
+class ModelPusherArtifact:
+    """
+    Data class for storing model pusher artifacts. This class holds the bucket name and the S3 path 
+    where the model is pushed. It is used to store the trained model in a cloud storage service.
+    """
+    bucket_name: str
+    s3_model_path: str

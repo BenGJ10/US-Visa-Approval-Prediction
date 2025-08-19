@@ -121,3 +121,16 @@ class ModelEvaluationConfig:
     threshold_score_change: float = MODEL_EVALUATION_THRESHOLD_SCORE_CHANGE
     bucket_name: str = MODEL_BUCKET_NAME
     s3_model_key_path: str = MODEL_FILE_NAME
+
+
+
+@dataclass
+class ModelPusherConfig:
+    """
+    Configuration class for the model pusher component of the pipeline.
+    This includes:
+    - S3 bucket name for model storage.
+    - S3 key path for the model file.
+    """
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = MODEL_FILE_NAME
