@@ -1,4 +1,3 @@
-
 # US Visa Approval Prediction
 
 This project aims to predict the approval of US visa applications using machine learning techniques. The dataset used for this project is sourced from Kaggle and contains various features related to visa applications. 
@@ -118,6 +117,80 @@ We have implemented the second step of the MLOps pipeline: **Data Validation**.
 - Used Evidently to detect and report data drift.
 - Generated and saved both JSON and HTML validation reports.
 - Stored the DataValidationArtifact in the artifact folder for downstream consumption.
+
+---
+
+## Data Transformation
+
+The **Data Transformation** component prepares the data for modeling:
+
+- Reads validated train and test datasets.
+- Adds new features (e.g., `company_age`).
+- Drops unnecessary columns as defined in the schema.
+- Applies a transformation pipeline:
+  - One-hot encoding for categorical features.
+  - Ordinal encoding for ordered categories.
+  - Power transformation and standard scaling for numerical features.
+- Handles class imbalance using SMOTEENN.
+- Saves the transformed datasets as numpy arrays and the transformation pipeline as an artifact.
+
+#### Data Transformation Flow
+
+```
+[Validated Data] 
+   |
+   v
+[Feature Engineering & Column Dropping]
+   |
+   v
+[Preprocessing Pipeline: Encoding, Scaling, Transformation]
+   |
+   v
+[SMOTEENN Balancing for Class Imbalance]
+   |
+   v
+[Save Transformed Data & Preprocessor Artifact]
+```
+
+#### Steps Completed
+
+- Engineered new features and dropped unnecessary columns.
+- Applied preprocessing pipeline for encoding and scaling.
+- Balanced the dataset using SMOTEENN.
+- Saved transformed data and preprocessor for downstream tasks.
+
+---
+
+## Model Training
+
+The **Model Training** component builds and evaluates the machine learning model:
+
+- Loads the transformed train and test data.
+- Uses a model factory (e.g., `neuro_mf`) to select and train the best model based on configuration and expected accuracy.
+- Evaluates the model using accuracy, F1-score, precision, and recall.
+- Saves the trained model and metrics as artifacts for downstream use.
+
+#### Model Training Flow
+
+```
+[Transformed Train/Test Data]
+   |
+   v
+[Model Selection & Training (ModelFactory) utilizing neuro_mf package]
+   |
+   v
+[Model Evaluation: Accuracy, F1, Precision, Recall]
+   |
+   v
+[Save Trained Model & Metrics Artifact]
+```
+
+#### Steps Completed
+
+- Loaded transformed data for training and testing.
+- Selected and trained the best model using the model factory.
+- Evaluated model performance and saved metrics.
+- Stored the trained model and metrics artifact for further pipeline stages.
 
 ---
 
