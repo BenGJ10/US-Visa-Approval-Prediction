@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@300;400;600&display=fallback" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body class="bg-gray-100 font-poppins min-h-screen flex flex-col">
+    <nav class="bg-gradient-to-r from-green-600 to-green-800 text-white p-4 sticky top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-xl font-medium">US Visa Prediction</span>
+            </div>
+            <div class="space-x-4">
+                <a href="/" class="hover:text-gray-200 transition duration-200">Home</a>
+                <a href="/about" class="hover:text-gray-200 transition duration-200">About</a>
+                <a href="https://github.com/BenGJ10" target="_blank" class="hover:text-gray-200 transition duration-200">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="flex-grow flex items-center justify-center">
+        <div class="container max-w-2xl mx-auto mt-6">
+            <div class="bg-white shadow-2xl rounded-2xl overflow-hidden">
+                <div class="bg-gradient-to-r from-green-600 to-green-800 text-white p-8 text-center">
+                    <h1 class="text-3xl font-semibold tracking-tight">Visa Prediction Result</h1>
+                </div>
+                <div class="p-8 text-center">
+                    {% if error %}
+                        <p class="text-red-600 text-lg font-medium">{{ error }}</p>
+                    {% else %}
+                        <p class="text-2xl font-semibold text-gray-800">
+                            <strong>{{ 'Visa Approved' if context == 'Certified' else 'Visa Denied' }}</strong>
+                        </p>
+                        {% if context == 'Certified' %}
+                            <div class="mt-6 bg-green-50 p-4 rounded-lg">
+                                <h3 class="text-xl font-medium text-green-800">Congratulations! Things to keep in mind:</h3>
+                                <ul class="list-disc pl-5 mt-2 text-left text-gray-700">
+                                    <li>Prepare thoroughly for your visa interview by practicing common questions.</li>
+                                    <li>Gather all required documents, including proof of ties to your home country.</li>
+                                    <li>Follow up on your application status through official channels.</li>
+                                    <li>Consider consulting with an immigration expert for personalized advice.</li>
+                                </ul>
+                            </div>
+                        {% else %}
+                            <div class="mt-6 bg-red-50 p-4 rounded-lg">
+                                <h3 class="text-xl font-medium text-red-800">Don't worry! Suggestions to improve your chances:</h3>
+                                <ul class="list-disc pl-5 mt-2 text-left text-gray-700">
+                                    <li>Enhance your resume by gaining more relevant job experience or advanced education.</li>
+                                    <li>Consider applying to other regions or countries with different visa requirements.</li>
+                                    <li>Improve your application by addressing potential weaknesses, such as wage or company details.</li>
+                                    <li>Seek feedback from professionals or reapply after strengthening your profile.</li>
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    <a href="{{ url_for('home') }}" class="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition duration-300">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gradient-to-r from-green-600 to-green-800 text-white p-4 text-center text-sm mt-6">
+        <div>Developed by <a href="https://www.linkedin.com/in/bengj10/" class="underline hover:text-gray-200">Ben Gregory John</a></div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("input, select").focus(function() {
+                $(this).parent().addClass("ring-2 ring-green-500");
+            }).blur(function() {
+                $(this).parent().removeClass("ring-2 ring-green-500");
+            });
+        });
+    </script>
+</body>
+</html>
