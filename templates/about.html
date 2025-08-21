@@ -28,8 +28,8 @@
     <div class="flex-grow flex items-center justify-center">
         <div class="container max-w-5xl mx-auto p-8 mt-6">
             <div class="bg-white shadow-2xl rounded-2xl p-8">
-                <h1 class="text-3xl font-semibold text-gray-800 mb-6">About This MLOps Project</h1>
-                <p class="text-gray-600 mb-6 text-lg">The US Visa Prediction project is an end-to-end MLOps pipeline designed to predict visa approval outcomes using machine learning. Built by Ben Gregory John, this project showcases expertise in scalable, data-driven solutions, leveraging tools like FastAPI, Pandas, Scikit-learn, AWS, and GitHub Actions.</p>
+                <h1 class="text-3xl font-semibold text-gray-800 mb-6">About this MLOps project</h1>
+                <p class="text-gray-600 mb-6 text-lg">The US Visa Prediction project is an end-to-end MLOps pipeline designed to predict visa approval outcomes using machine learning. Built by Ben Gregory John, this project showcases expertise in ETL pipelines, scalable, data-driven solutions, leveraging tools like FastAPI, Pandas, Scikit-learn, Docker, AWS services, and GitHub Actions.</p>
                 <h2 class="text-2xl font-medium text-gray-800 mt-6 mb-4">MLOps Pipeline Overview</h2>
                 <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="pipeline-card bg-gray-50 border border-green-200 rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
@@ -37,14 +37,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
                         </svg>
                         <h3 class="text-xl font-medium text-green-600">Data Ingestion</h3>
-                        <p class="text-gray-600 text-sm">Collects and loads visa application data from structured sources using Pandas for seamless integration.</p>
+                        <p class="text-gray-600 text-sm">Collects and loads visa application data from MongoDB Atlas database using Pandas for seamless integration.</p>
                     </div>
                     <div class="pipeline-card bg-gray-50 border border-green-200 rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
                         <svg class="w-8 h-8 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                         <h3 class="text-xl font-medium text-green-600">Data Validation</h3>
-                        <p class="text-gray-600 text-sm">Ensures data consistency, completeness, and correctness by checking for missing values and outliers.</p>
+                        <p class="text-gray-600 text-sm">Ensures data consistency, completeness, and correctness by checking for missing values and data drifts using Evidently.</p>
                     </div>
                     <div class="pipeline-card bg-gray-50 border border-green-200 rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
                         <svg class="w-8 h-8 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                         </svg>
                         <h3 class="text-xl font-medium text-green-600">Model Training</h3>
-                        <p class="text-gray-600 text-sm">Trains a Random Forest model using Scikit-learn with optimized hyperparameters.</p>
+                        <p class="text-gray-600 text-sm">Uses neuromf library to find the best model and trains it with optimized hyperparameters.</p>
                     </div>
                     <div class="pipeline-card bg-gray-50 border border-green-200 rounded-lg p-4 text-center hover:scale-105 transition-transform duration-200">
                         <svg class="w-8 h-8 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
