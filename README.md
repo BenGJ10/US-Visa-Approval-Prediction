@@ -44,6 +44,9 @@ The pipeline is designed to automate the process of data ingestion, validation, 
 
 ![Cloud Deployment](images/deployment.png)
 
+
+---
+
 ## Data Ingestion
 
 We have implemented the first step of the MLOps pipeline: **Data Ingestion**. 
