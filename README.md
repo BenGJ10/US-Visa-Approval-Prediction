@@ -22,6 +22,27 @@ We will build a machine learning model using the following steps:
 7. **Model Evaluation**: Evaluate the model's performance using metrics like accuracy, precision, recall, and F1-score.
 
 ---
+## Introduction to MLOps ETL Pipeline
+This project implements an MLOps ETL (Extract, Transform, Load) pipeline for the US Visa Approval Prediction task. The pipeline consists of several stages that ensure data quality, transformation, and model training.
+The pipeline is designed to automate the process of data ingestion, validation, transformation, and model training, making it easier to manage and deploy machine learning models in production.
+
+## Prediction System Overview
+
+- Prediction System 
+
+![Prediction System Overview](images/predictor.png)
+
+- Accepted vs Denied Response
+
+![Accepted Response](images/accepted.png)
+
+![Denied Response](images/denied.png)
+
+- ETL Pipelines and Cloud Deployment
+
+![ETL Pipelines](images/etl-pipelines.png)
+
+![Cloud Deployment](images/deployment.png)
 
 ## Data Ingestion
 
